@@ -2,3 +2,5 @@ Hello There. This is my Swift progress document. This document tracks the 100 da
 
 Day 1: ✅
 Day 2: ✅
+Day 3: ✅
+Day 4: ✅
