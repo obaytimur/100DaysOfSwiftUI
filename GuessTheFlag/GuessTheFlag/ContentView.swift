@@ -69,7 +69,7 @@ struct ContentView: View {
         }.alert(scoreTitle, isPresented: $showingScore, presenting: currentCountry) {currentCountry in
             Button("Continue", action: askQuestion)
         } message: {currentCountry in
-            Text(scoreTitle == "Correct" ? "Yas babe, you knew it! " : "Nooo! That is \(currentCountry) you dump fuck")
+            Text(scoreTitle == "Correct" ? "Yas babe, you knew it! " : "Nooo! That is \(currentCountry) you dumb fuck")
         }
     }
     func flagTapped(_ number: Int) {
