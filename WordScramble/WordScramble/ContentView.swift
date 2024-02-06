@@ -10,29 +10,53 @@ import SwiftUI
 struct ContentView: View {
     @State private var usedWords = [String]()
     @State private var rootWord = ""
+    @State private var rootWordMixed = ""
     @State private var newWord = ""
+    @State private var mixingLetters = false
+    
+    @State private var score = 0
     
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    TextField("Enter your word", text: $newWord)
-                        .textInputAutocapitalization(.never)
+            VStack {
+                HStack {
+                    Text(String(rootWordMixed))
+                    Spacer()
+                    Button ("Mix Word", action: mixLetters)
                 }
-
-                Section {
-                    ForEach(usedWords, id: \.self) { word in
+                .padding()
+                List {
+                    Section {
                         HStack{
-                            Text(word)
-                            Image(systemName: "\(word.count).circle")
+                            TextField("Enter your word", text: $newWord)
+                                .textInputAutocapitalization(.never)
+                            Text("Score: \(score)")
+                        }
+                    }
+
+                    Section {
+                        ForEach(usedWords, id: \.self) { word in
+                            HStack{
+                                Text(word)
+                                Image(systemName: "\(word.count).circle")
+                            }
                         }
                     }
                 }
             }
             .navigationTitle(rootWord)
+            .toolbar {
+                ToolbarItemGroup {
+                    Button {
+                        startGame()
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                    }
+                }
+            }
             .onSubmit(addNewWord)
             .onAppear(perform: startGame)
             .alert(errorTitle, isPresented: $showingError) {
@@ -42,8 +66,11 @@ struct ContentView: View {
             }
         }
     }
+    func addScore (word: String) {
+        score += word.count
+    }
     func isShort(word: String) -> Bool {
-        word.count >= 1
+        !(word.count <= 2)
     }
     func isOriginal(word: String) -> Bool {
         !usedWords.contains(word)
@@ -71,11 +98,19 @@ struct ContentView: View {
         showingError = true
     }
     
+    func mixLetters() {
+        rootWordMixed = String(rootWord.shuffled())
+        mixingLetters = true
+    }
     func startGame() {
         if let startWordUrl = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordUrl) {
                 let allWords = startWords.components(separatedBy: "\n")
+                score = 0
                 rootWord = allWords.randomElement() ?? "silkworm"
+                rootWordMixed = ""
+                mixingLetters = false
+                usedWords = [String]()
                 return
             }
         }
@@ -88,7 +123,7 @@ struct ContentView: View {
         
         guard answer.count > 0 else { return }
         guard isShort(word: answer) else {
-            wordError(title: "Too Short", message: "You cannot write words shorter than 2 characters")
+            wordError(title: "Too Short", message: "You cannot write words shorter than 3 characters")
             return
         }
         guard isOriginal(word: answer) else {
@@ -107,6 +142,7 @@ struct ContentView: View {
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
+        addScore(word: answer)
         newWord = ""
     }
 }
