@@ -25,7 +25,7 @@ struct ContentView: View {
                 HStack {
                     Text(String(rootWordMixed))
                     Spacer()
-                    Button ("Mix Word", action: mixLetters)
+                    Button ("Shuffle Letters", action: mixLetters)
                 }
                 .padding()
                 List {
@@ -53,7 +53,7 @@ struct ContentView: View {
                     Button {
                         startGame()
                     } label: {
-                        Image(systemName: "arrow.counterclockwise")
+                        Text("New Word")
                     }
                 }
             }
