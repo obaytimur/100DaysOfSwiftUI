@@ -63,6 +63,7 @@ struct ContentView: View {
                         }
                         .rotation3DEffect( .degrees( tappedNumber == number ? animationAmount : 0 ), axis: (x: 0.0, y: 1.0, z: 0.0) )
                         .opacity(isButtonTapped ? (tappedNumber == number ? 1 : 0.5) : 1)
+                        .scaleEffect(isButtonTapped ? (tappedNumber == number ? 1 : 0.5) : 1)
                         
                     }
                 }
