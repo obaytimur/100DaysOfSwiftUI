@@ -52,9 +52,7 @@ extension ContentView {
         }
     }
     private var questionView: some View {
-        questionArray = generateQuestions()
-        answerArr.reserveCapacity(questionArray.capacity)
-        ForEach(questionArray, id: \.self) { question in
+        ForEach(generateQuestions(), id: \.self) { $question in
             HStack {
                 Text("\(question[0]) x \(question[1])")
             }
@@ -64,12 +62,12 @@ extension ContentView {
             .clipShape(.capsule)
         }
     }
-    func generateQuestions () -> [ [Int] ] {
-        var retArr: [ [Int] ] = Array()
+    func generateQuestions () -> Binding<[ [Int] ]>{
+        @State var retArr: [ [Int] ] = Array()
         for _ in 1...(totalNumber+1)*5 {
             retArr.append([Int.random(in: 0..<uptoNumber+1), Int.random(in: 0..<uptoNumber+1), 0])
         }
-        return retArr
+        return $retArr
     }
 
 }
