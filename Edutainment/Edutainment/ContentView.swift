@@ -13,13 +13,28 @@ struct ContentView: View {
     @State private var totalNumber = 1
     @State private var questionArray: [ [Int] ] = Array()
     @State private var answerArr: [Int] = Array()
+    @State private var isGameOn = false
     
     var body: some View {
-        VStack {
-            settingView
-            questionView
+        NavigationStack{
+            VStack {
+                if isGameOn {
+                    questionView
+                } else {
+                    settingView
+                }
+            }
+            .padding()
+            .navigationTitle("Edutainment")
+            .toolbar {
+                HStack {
+                    Image(systemName: "gearshape")
+                    Toggle("", isOn: $isGameOn)
+                        .toggleStyle(.switch)
+                    Image(systemName: "gamecontroller")
+                }
+            }
         }
-        .padding()
     }
     
     enum states {
@@ -36,9 +51,12 @@ extension ContentView {
                 Picker("Select number", selection: $uptoNumber) {
                     ForEach(0..<13) {
                         Text("\($0)")
+                            
                     }
                 }
+                .tint(Color.white)
             }
+            .padding()
             HStack {
                 Text("Numer of total question")
                 Spacer()
@@ -47,9 +65,17 @@ extension ContentView {
                         Text("\($0*5)")
                     }
                 }
+                .tint(Color.white)
             }
-            Text("Study numbers: \(uptoNumber) and total questions \(totalNumber)")
+            .padding()
+            Text("Study numbers: \(uptoNumber) \n Total questions \(totalNumber)")
+            Spacer()
         }
+        .background(Color.teal)
+        .foregroundStyle(Color.white)
+        .font(.system(size: 20))
+        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .padding(20)
     }
     private var questionView: some View {
         ForEach(generateQuestions(), id: \.self) { $question in
