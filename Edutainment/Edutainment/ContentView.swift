@@ -51,7 +51,6 @@ extension ContentView {
                 Picker("Select number", selection: $uptoNumber) {
                     ForEach(0..<13) {
                         Text("\($0)")
-                            
                     }
                 }
                 .tint(Color.white)
@@ -78,22 +77,45 @@ extension ContentView {
         .padding(20)
     }
     private var questionView: some View {
-        ForEach(generateQuestions(), id: \.self) { $question in
-            HStack {
-                Text("\(question[0]) x \(question[1])")
+        VStack {
+            let numberFormatter: NumberFormatter = {
+                    let formatter = NumberFormatter()
+                    formatter.numberStyle = .none
+                    formatter.zeroSymbol  = ""
+                    return formatter
+                }()
+            if questionArray.count != 0 {
+                ForEach(questionArray, id: \.self) { question in
+                    HStack {
+                        Text("\(question[0]) x \(question[1])")
+                            .padding()
+                            .frame(width: 100, height: 30)
+                            .background(Color.green)
+                            .clipShape(.capsule)
+                        Text("=")
+                            .padding()
+                            .frame(height: 30)
+                            .background(Color.red)
+                            .clipShape(.capsule)
+                        TextField("", value: $questionArray[0][2], formatter: numberFormatter)
+                            .padding()
+                            .frame(height: 30)
+                            .background(Color.blue)
+                            .clipShape(.capsule)
+                    }
+                }
             }
-            .padding()
-            .frame(width: 120, height: 30)
-            .background(Color.green)
-            .clipShape(.capsule)
+            Button ("New Questions"){
+                questionArray = generateQuestions()
+            }
         }
     }
-    func generateQuestions () -> Binding<[ [Int] ]>{
-        @State var retArr: [ [Int] ] = Array()
+    func generateQuestions () -> [ [Int] ] {
+        var retArr: [ [Int] ] = Array()
         for _ in 1...(totalNumber+1)*5 {
             retArr.append([Int.random(in: 0..<uptoNumber+1), Int.random(in: 0..<uptoNumber+1), 0])
         }
-        return $retArr
+        return retArr
     }
 
 }
