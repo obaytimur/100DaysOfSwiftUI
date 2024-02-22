@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EE19C47E2B87352700FD0243 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19C47D2B87352700FD0243 /* MissionView.swift */; };
+		EE19C4802B873AA400FD0243 /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19C47F2B873AA400FD0243 /* AstronautView.swift */; };
 		EE2A1FAD2B84985000B271C5 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2A1FAC2B84985000B271C5 /* Color-Theme.swift */; };
 		EED8DB042B8446E70053BA48 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = EED8DB022B8446E70053BA48 /* astronauts.json */; };
 		EED8DB052B8446E70053BA48 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = EED8DB032B8446E70053BA48 /* missions.json */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		EE19C47D2B87352700FD0243 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		EE19C47F2B873AA400FD0243 /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 		EE2A1FAC2B84985000B271C5 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
 		EED8DB022B8446E70053BA48 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
 		EED8DB032B8446E70053BA48 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				EE2A1FAC2B84985000B271C5 /* Color-Theme.swift */,
 				EED8DB0A2B844AA30053BA48 /* Mission.swift */,
 				EE19C47D2B87352700FD0243 /* MissionView.swift */,
+				EE19C47F2B873AA400FD0243 /* AstronautView.swift */,
 				EED8DB062B8447940053BA48 /* Astronaut.swift */,
 				EED8DB082B8447C50053BA48 /* Bundle-Decodable.swift */,
 				EEFA411C2B811341006D2773 /* Assets.xcassets */,
@@ -162,6 +165,7 @@
 			files = (
 				EE19C47E2B87352700FD0243 /* MissionView.swift in Sources */,
 				EED8DB072B8447940053BA48 /* Astronaut.swift in Sources */,
+				EE19C4802B873AA400FD0243 /* AstronautView.swift in Sources */,
 				EE2A1FAD2B84985000B271C5 /* Color-Theme.swift in Sources */,
 				EEFA411B2B811340006D2773 /* ContentView.swift in Sources */,
 				EEFA41192B811340006D2773 /* MoonshotApp.swift in Sources */,
