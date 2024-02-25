@@ -14,7 +14,7 @@ struct AddView: View {
     @State private var type = "Personal"
     @State private var amount = 0.0
     
-    var expenses: Expenses
+    @Binding var expenses: Expenses
 
     let types = ["Business", "Personal"]
 
@@ -34,16 +34,24 @@ struct AddView: View {
             }
             .navigationTitle("Add new expense")
             .toolbar {
-                Button("Save") {
-                    let item = ExpenseItem(name: name, type: type, amount: amount)
-                    expenses.items.append(item)
-                    dismiss()
+                ToolbarItem {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+                ToolbarItem {
+                    Button("Save") {
+                        let item = ExpenseItem(name: name, type: type, amount: amount)
+                        expenses.items.append(item)
+                        dismiss()
+                    }
                 }
             }
+            .navigationBarBackButtonHidden()
         }
     }
 }
 
 #Preview {
-    AddView(expenses: Expenses())
+    AddView(expenses: .constant(Expenses()) )
 }

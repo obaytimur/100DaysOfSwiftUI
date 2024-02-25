@@ -53,11 +53,11 @@ struct ContentView: View {
                                         .font(.headline)
                                     Text(item.type)
                                 }
-
+                                
                                 Spacer()
                                 Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                                     .foregroundStyle(item.amount < 10 ? Color.green : (item.amount < 100 ? Color.blue : Color.red))
-                                }
+                            }
                         }
                     }
                     .onDelete(perform: removeItems)
@@ -72,11 +72,11 @@ struct ContentView: View {
                                         .font(.headline)
                                     Text(item.type)
                                 }
-
+                                
                                 Spacer()
                                 Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                                     .foregroundStyle(item.amount < 10 ? Color.green : (item.amount < 100 ? Color.blue : Color.red))
-                                }
+                            }
                         }
                     }
                     .onDelete(perform: removeItems)
@@ -84,13 +84,12 @@ struct ContentView: View {
             }
             .navigationTitle("iExpense")
             .toolbar {
-                Button("Add Expense", systemImage: "plus") {
-                    showingAddExpense = true
+                NavigationLink {
+                    AddView(expenses: $expenses)
+                } label : {
+                    Image(systemName: "plus")
                 }
             }
-        }
-        .sheet(isPresented: $showingAddExpense) {
-            AddView(expenses: expenses)
         }
     }
     
