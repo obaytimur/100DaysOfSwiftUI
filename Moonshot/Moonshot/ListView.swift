@@ -11,12 +11,10 @@ struct ListView: View {
     var missions: [Mission]
     var astronauts: [String: Astronaut]
     var body: some View {
-        List {
-            ForEach(missions) { mission in
-                NavigationLink {
-                    MissionView(mission: mission, astronauts: astronauts)
-                        .hidden()
-                } label: {
+        List(missions) {mission in
+            Group {
+                NavigationLink(value: mission,
+                label: {
                     VStack {
                         Image(mission.image)
                             .resizable()
@@ -40,12 +38,15 @@ struct ListView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(.lightBackground)
                     )
-                }
+                })
             }
             .listRowBackground(Color.darkBackground)
         }
-        .listStyle(.plain)
+        .navigationDestination(for: Mission.self) { selection in
+            MissionView(mission: selection, astronauts: astronauts)
+        }
         .padding([.horizontal, .bottom])
+        .listStyle(.plain)
     }
 }
 
