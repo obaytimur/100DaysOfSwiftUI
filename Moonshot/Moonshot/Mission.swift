@@ -30,3 +30,8 @@ struct Mission: Codable, Identifiable {
     let crew: [CrewRole]
     let description: String
 }
+
+struct CrewMember {
+    let role: String
+    let astronaut: Astronaut
+}
