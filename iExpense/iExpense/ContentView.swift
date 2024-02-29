@@ -12,6 +12,10 @@ struct ExpenseItem: Identifiable, Codable {
     let name: String
     let type: String
     let amount: Double
+}
+
+@Observable
+class Expenses {
     var items = [ExpenseItem]() {
         didSet {
             if let encoded = try? JSONEncoder().encode(items) {
@@ -19,11 +23,6 @@ struct ExpenseItem: Identifiable, Codable {
             }
         }
     }
-}
-
-@Observable
-class Expenses {
-    var items = [ExpenseItem]()
     
     init() {
         if let savedItems = UserDefaults.standard.data(forKey: "Items") {
