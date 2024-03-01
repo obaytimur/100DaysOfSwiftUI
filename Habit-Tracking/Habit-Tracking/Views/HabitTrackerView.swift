@@ -17,22 +17,27 @@ struct HabitTrackerView: View {
             GridItem(.fixed(20)),
             GridItem(.fixed(20))
         ]
-    @Binding var habit: Habit
+    var habit: Habit
     var body: some View {
-        ScrollView {
             LazyVGrid(columns: fixedColumn, spacing: 10) {
-                ForEach(0..<habit.history.count, id: \.self ) {tracker in
-                    Rectangle()
-                        .frame(width: 20, height: 20)
-                        .foregroundStyle(habit.history[tracker] == completeness.success ? .green : .black)
-                        .clipShape(RoundedRectangle(cornerRadius: 3))
+                ForEach(0..<28, id: \.self ) {tracker in
+                    if tracker < habit.history.count{
+                        Rectangle()
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(habit.history[tracker] == completeness.success ? .green : .black)
+                            .clipShape(RoundedRectangle(cornerRadius: 3))
+                    } else {
+                        Rectangle()
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(.black)
+                            .clipShape(RoundedRectangle(cornerRadius: 3)) 
+                    }
                 }
             }
-        }
         .padding()
     }
 }
 
 #Preview {
-    HabitTrackerView(habit: .constant(Constants.exHabit))
+    HabitTrackerView(habit: Constants.exHabit)
 }

@@ -13,13 +13,19 @@ struct ContentView: View {
         NavigationStack {
             List(habits.habits) {habit in
                 NavigationLink(value: habit, label: {
-                    Text(habit.name)
+                    HabitMainScreenSmallView(habit: habit)
                 })
             }
+            .listStyle(.plain)
+            .navigationTitle("Habits")
         }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews : PreviewProvider {
+    static var previews: some View {
+        let myExObject = userHabits()
+        myExObject.habits.append(Constants.exHabit)
+        return ContentView(habits: myExObject)
+    }
 }
