@@ -14,4 +14,6 @@ enum Constants {
                                                                                                 .success, .success, .fail, .success, .fail,
                                                                                                 .success, .success, .fail, .success, .fail ]
     )
+    
+    static let exUserHabit = userHabits()
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var habits = userHabits()
+    @State private var addHabit = false
     var body: some View {
         NavigationStack {
             List(habits.habits) {habit in
@@ -18,6 +19,16 @@ struct ContentView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Habits")
+            .toolbar{
+                ToolbarItem{
+                    Button("Add Habit"){
+                        addHabit = true
+                    }
+                }
+            }
+            .sheet(isPresented: $addHabit) {
+                AddHabitSheetView(habits: $habits)
+            }
         }
     }
 }
