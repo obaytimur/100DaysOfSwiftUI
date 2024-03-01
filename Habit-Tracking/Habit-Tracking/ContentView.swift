@@ -14,7 +14,10 @@ struct ContentView: View {
         NavigationStack {
             List(habits.habits) {habit in
                 NavigationLink(value: habit, label: {
-                    HabitMainScreenSmallView(habit: habit)
+                    VStack(alignment: .leading) {
+                        Text(habit.name)
+                        HabitMainScreenSmallView(habit: habit)
+                    }
                 })
             }
             .listStyle(.plain)
@@ -25,6 +28,9 @@ struct ContentView: View {
                         addHabit = true
                     }
                 }
+            }
+            .navigationDestination(for: Habit.self) { selection in
+                HabitDetailView()
             }
             .sheet(isPresented: $addHabit) {
                 AddHabitSheetView(habits: $habits)

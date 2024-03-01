@@ -12,16 +12,17 @@ struct HabitMainScreenSmallView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(maxWidth: .infinity, maxHeight: 150)
+                .frame(maxWidth: .infinity, maxHeight: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
                 .padding()
             .foregroundStyle(Color.gray.opacity(0.3))
             HStack {
                 HabitTrackerView(habit: habit)
+                    .padding()
                 Rectangle()
                     .frame(width: 2, height: 70)
                     .foregroundStyle(.black)
-                    .padding(.horizontal)
+                Spacer()
                 Button() {
                     
                 } label: {
@@ -29,6 +30,7 @@ struct HabitMainScreenSmallView: View {
                         .scaleEffect(3)
                 }
                 .padding()
+                Spacer()
             }
         }
     }

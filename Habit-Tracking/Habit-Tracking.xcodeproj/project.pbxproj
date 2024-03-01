@@ -16,6 +16,7 @@
 		EE3F90AC2B90AE72000C1698 /* HabitTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F90AB2B90AE72000C1698 /* HabitTrackerView.swift */; };
 		EE3F90AE2B90AFC6000C1698 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F90AD2B90AFC6000C1698 /* Constants.swift */; };
 		EED7A8F22B91BF100032AB46 /* AddHabitSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED7A8F12B91BF100032AB46 /* AddHabitSheetView.swift */; };
+		EED7A8F42B91F4320032AB46 /* HabitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED7A8F32B91F4320032AB46 /* HabitDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		EE3F90AB2B90AE72000C1698 /* HabitTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerView.swift; sourceTree = "<group>"; };
 		EE3F90AD2B90AFC6000C1698 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EED7A8F12B91BF100032AB46 /* AddHabitSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitSheetView.swift; sourceTree = "<group>"; };
+		EED7A8F32B91F4320032AB46 /* HabitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				EE3F90A92B909DF9000C1698 /* HabitMainScreenSmallView.swift */,
 				EE3F90AB2B90AE72000C1698 /* HabitTrackerView.swift */,
 				EED7A8F12B91BF100032AB46 /* AddHabitSheetView.swift */,
+				EED7A8F32B91F4320032AB46 /* HabitDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				EE3F90AC2B90AE72000C1698 /* HabitTrackerView.swift in Sources */,
 				EE3F90AA2B909DF9000C1698 /* HabitMainScreenSmallView.swift in Sources */,
 				EE3F90982B907BFA000C1698 /* Habit_TrackingApp.swift in Sources */,
+				EED7A8F42B91F4320032AB46 /* HabitDetailView.swift in Sources */,
 				EE3F90AE2B90AFC6000C1698 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
