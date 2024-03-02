@@ -57,7 +57,7 @@ extension ContentView {
             }
             .padding()
             HStack {
-                Text("Numer of total question")
+                Text("Number of total question")
                 Spacer()
                 Picker("Select question number", selection: $totalNumber) {
                     ForEach(1..<5) {
@@ -67,7 +67,7 @@ extension ContentView {
                 .tint(Color.white)
             }
             .padding()
-            Text("Study numbers: \(uptoNumber) \n Total questions \(totalNumber)")
+            Text("Study numbers: \(uptoNumber) \n Total questions \(totalNumber*5+5)")
             Spacer()
         }
         .background(Color.teal)
@@ -77,36 +77,38 @@ extension ContentView {
         .padding(20)
     }
     private var questionView: some View {
-        VStack {
-            let numberFormatter: NumberFormatter = {
-                    let formatter = NumberFormatter()
-                    formatter.numberStyle = .none
-                    formatter.zeroSymbol  = ""
-                    return formatter
-                }()
-            if questionArray.count != 0 {
-                ForEach(questionArray, id: \.self) { question in
-                    HStack {
-                        Text("\(question[0]) x \(question[1])")
-                            .padding()
-                            .frame(width: 100, height: 30)
-                            .background(Color.green)
-                            .clipShape(.capsule)
-                        Text("=")
-                            .padding()
-                            .frame(height: 30)
-                            .background(Color.red)
-                            .clipShape(.capsule)
-                        TextField("", value: $questionArray[0][2], formatter: numberFormatter)
-                            .padding()
-                            .frame(height: 30)
-                            .background(Color.blue)
-                            .clipShape(.capsule)
+        ScrollView{
+            VStack {
+                let numberFormatter: NumberFormatter = {
+                        let formatter = NumberFormatter()
+                        formatter.numberStyle = .none
+                        formatter.zeroSymbol  = ""
+                        return formatter
+                    }()
+                if questionArray.count != 0 {
+                    ForEach(questionArray, id: \.self) { question in
+                        HStack {
+                            Text("\(question[0]) x \(question[1])")
+                                .padding()
+                                .frame(width: 100, height: 30)
+                                .background(Color.green)
+                                .clipShape(.capsule)
+                            Text("=")
+                                .padding()
+                                .frame(height: 30)
+                                .background(Color.red)
+                                .clipShape(.capsule)
+                            TextField("", value: $questionArray[0][2], formatter: numberFormatter)
+                                .padding()
+                                .frame(height: 30)
+                                .background(Color.blue)
+                                .clipShape(.capsule)
+                        }
                     }
                 }
-            }
-            Button ("New Questions"){
-                questionArray = generateQuestions()
+                Button ("New Questions"){
+                    questionArray = generateQuestions()
+                }
             }
         }
     }
