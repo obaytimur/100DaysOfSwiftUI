@@ -12,7 +12,8 @@ struct ContentView: View {
     @State private var uptoNumber = 1
     @State private var totalNumber = 1
     @State private var questionArray: [ [Int] ] = Array()
-    @State private var answerArr: [Int] = Array()
+    @State private var answerArr: [Int?] = Array()
+    @State private var isAnsweredArr: [Bool] = Array()
     @State private var isGameOn = false
     
     var body: some View {
@@ -86,9 +87,9 @@ extension ContentView {
                         return formatter
                     }()
                 if questionArray.count != 0 {
-                    ForEach(questionArray, id: \.self) { question in
+                    ForEach(0..<questionArray.count, id: \.self) { index in
                         HStack {
-                            Text("\(question[0]) x \(question[1])")
+                            Text("\(questionArray[index][0]) x \(questionArray[index][1])")
                                 .padding()
                                 .frame(width: 100, height: 30)
                                 .background(Color.green)
@@ -96,28 +97,30 @@ extension ContentView {
                             Text("=")
                                 .padding()
                                 .frame(height: 30)
-                                .background(Color.red)
+                                .background(Color.blue)
                                 .clipShape(.capsule)
-                            TextField("", value: $questionArray[0][2], formatter: numberFormatter)
+                            TextField("Your answer...", value: $answerArr[index], format: .number)
                                 .padding()
                                 .frame(height: 30)
-                                .background(Color.blue)
+                                .background(answerArr[index] == nil ? .gray.opacity(0.2) : (answerArr[index] == questionArray[index][0] * questionArray[index][1] ? .green : .red) )
                                 .clipShape(.capsule)
                         }
                     }
                 }
                 Button ("New Questions"){
-                    questionArray = generateQuestions()
+                    (questionArray, answerArr) = generateQuestions()
                 }
             }
         }
     }
-    func generateQuestions () -> [ [Int] ] {
+    func generateQuestions () -> ( [ [Int] ], [Int?] ) {
         var retArr: [ [Int] ] = Array()
+        var ansArr: [ Int? ] = Array()
         for _ in 1...(totalNumber+1)*5 {
             retArr.append([Int.random(in: 0..<uptoNumber+1), Int.random(in: 0..<uptoNumber+1), 0])
         }
-        return retArr
+        ansArr = Array(repeating: nil, count: retArr.count)
+        return (retArr, ansArr)
     }
 
 }
