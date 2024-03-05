@@ -26,9 +26,25 @@ class Order: Codable {
     var addSprinkles = false
     
     var name = ""
-    var streetAddress = ""
+    var streetAddress = "" {
+        didSet {
+            if let encoded = try? JSONEncoder().encode(streetAddress){
+                UserDefaults.standard.set(encoded, forKey: "address")
+            }
+        }
+    }
     var city = ""
     var zip = ""
+    
+    init() {
+        if let savedItems = UserDefaults.standard.data(forKey: "address") {
+            if let decodedItems = try? JSONDecoder().decode(String.self, from: savedItems){
+                streetAddress = decodedItems
+                return
+            }
+        }
+        streetAddress = ""
+    }
     
     var hasValidAddress: Bool {
         if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
