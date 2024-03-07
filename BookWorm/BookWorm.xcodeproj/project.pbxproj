@@ -15,6 +15,7 @@
 		EEFF60AB2B9A38C0009F5F41 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF60AA2B9A38C0009F5F41 /* AddBookView.swift */; };
 		EEFF60AD2B9A3A94009F5F41 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF60AC2B9A3A94009F5F41 /* RatingView.swift */; };
 		EEFF60AF2B9A51E0009F5F41 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF60AE2B9A51E0009F5F41 /* EmojiRatingView.swift */; };
+		EEFF60B12B9A535B009F5F41 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF60B02B9A535B009F5F41 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		EEFF60AA2B9A38C0009F5F41 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		EEFF60AC2B9A3A94009F5F41 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		EEFF60AE2B9A51E0009F5F41 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
+		EEFF60B02B9A535B009F5F41 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				EEFF60AC2B9A3A94009F5F41 /* RatingView.swift */,
 				EEFF60AE2B9A51E0009F5F41 /* EmojiRatingView.swift */,
 				EE11D2DC2B99718A0098E14B /* ContentView.swift */,
+				EEFF60B02B9A535B009F5F41 /* DetailView.swift */,
 				EEFF60A82B9A385D009F5F41 /* Book.swift */,
 				EE11D2DE2B99718B0098E14B /* Assets.xcassets */,
 				EE11D2E02B99718B0098E14B /* Preview Content */,
@@ -152,6 +155,7 @@
 				EE11D2DD2B99718A0098E14B /* ContentView.swift in Sources */,
 				EE11D2DB2B99718A0098E14B /* BookWormApp.swift in Sources */,
 				EEFF60A92B9A385D009F5F41 /* Book.swift in Sources */,
+				EEFF60B12B9A535B009F5F41 /* DetailView.swift in Sources */,
 				EEFF60AD2B9A3A94009F5F41 /* RatingView.swift in Sources */,
 				EEFF60AF2B9A51E0009F5F41 /* EmojiRatingView.swift in Sources */,
 				EEFF60AB2B9A38C0009F5F41 /* AddBookView.swift in Sources */,
