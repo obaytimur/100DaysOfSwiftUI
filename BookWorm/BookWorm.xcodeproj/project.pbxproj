@@ -11,7 +11,8 @@
 		EE11D2DD2B99718A0098E14B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE11D2DC2B99718A0098E14B /* ContentView.swift */; };
 		EE11D2DF2B99718B0098E14B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE11D2DE2B99718B0098E14B /* Assets.xcassets */; };
 		EE11D2E22B99718B0098E14B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE11D2E12B99718B0098E14B /* Preview Assets.xcassets */; };
-		EEFF60A72B9A3500009F5F41 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF60A62B9A3500009F5F41 /* Student.swift */; };
+		EEFF60A92B9A385D009F5F41 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF60A82B9A385D009F5F41 /* Book.swift */; };
+		EEFF60AB2B9A38C0009F5F41 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF60AA2B9A38C0009F5F41 /* AddBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +21,8 @@
 		EE11D2DC2B99718A0098E14B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE11D2DE2B99718B0098E14B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE11D2E12B99718B0098E14B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EEFF60A62B9A3500009F5F41 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		EEFF60A82B9A385D009F5F41 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		EEFF60AA2B9A38C0009F5F41 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				EE11D2DA2B99718A0098E14B /* BookWormApp.swift */,
+				EEFF60AA2B9A38C0009F5F41 /* AddBookView.swift */,
 				EE11D2DC2B99718A0098E14B /* ContentView.swift */,
-				EEFF60A62B9A3500009F5F41 /* Student.swift */,
+				EEFF60A82B9A385D009F5F41 /* Book.swift */,
 				EE11D2DE2B99718B0098E14B /* Assets.xcassets */,
 				EE11D2E02B99718B0098E14B /* Preview Content */,
 			);
@@ -141,8 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE11D2DD2B99718A0098E14B /* ContentView.swift in Sources */,
-				EEFF60A72B9A3500009F5F41 /* Student.swift in Sources */,
 				EE11D2DB2B99718A0098E14B /* BookWormApp.swift in Sources */,
+				EEFF60A92B9A385D009F5F41 /* Book.swift in Sources */,
+				EEFF60AB2B9A38C0009F5F41 /* AddBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
