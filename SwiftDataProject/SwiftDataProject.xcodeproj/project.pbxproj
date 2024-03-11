@@ -13,6 +13,7 @@
 		EED2876D2B9DFA74000C9945 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EED2876C2B9DFA74000C9945 /* Preview Assets.xcassets */; };
 		EED287742B9DFA9E000C9945 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED287732B9DFA9E000C9945 /* User.swift */; };
 		EED287762B9DFAE5000C9945 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED287752B9DFAE5000C9945 /* EditUserView.swift */; };
+		EED287782B9EFF59000C9945 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED287772B9EFF59000C9945 /* UsersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		EED2876C2B9DFA74000C9945 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EED287732B9DFA9E000C9945 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EED287752B9DFAE5000C9945 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
+		EED287772B9EFF59000C9945 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				EED287652B9DFA74000C9945 /* SwiftDataProjectApp.swift */,
 				EED287752B9DFAE5000C9945 /* EditUserView.swift */,
 				EED287672B9DFA74000C9945 /* ContentView.swift */,
+				EED287772B9EFF59000C9945 /* UsersView.swift */,
 				EED287732B9DFA9E000C9945 /* User.swift */,
 				EED287692B9DFA74000C9945 /* Assets.xcassets */,
 				EED2876B2B9DFA74000C9945 /* Preview Content */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EED287782B9EFF59000C9945 /* UsersView.swift in Sources */,
 				EED287682B9DFA74000C9945 /* ContentView.swift in Sources */,
 				EED287762B9DFAE5000C9945 /* EditUserView.swift in Sources */,
 				EED287662B9DFA74000C9945 /* SwiftDataProjectApp.swift in Sources */,
