@@ -16,45 +16,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                Section("Business") {
-                    ForEach(expenses) { item in
-                        if item.type == "Business" {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(item.name)
-                                        .font(.headline)
-                                    Text(item.type)
-                                }
-                                
-                                Spacer()
-                                Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                                    .foregroundStyle(item.amount < 10 ? Color.green : (item.amount < 100 ? Color.blue : Color.red))
-                            }
-                        }
-                    }
-                    .onDelete(perform: removeItems)
-                }
-                
-                Section("Personal") {
-                    ForEach(expenses) { item in
-                        if item.type == "Personal" {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(item.name)
-                                        .font(.headline)
-                                    Text(item.type)
-                                }
-                                
-                                Spacer()
-                                Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                                    .foregroundStyle(item.amount < 10 ? Color.green : (item.amount < 100 ? Color.blue : Color.red))
-                            }
-                        }
-                    }
-                    .onDelete(perform: removeItems)
-                }
-            }
+            ExpenseView()
             .navigationTitle("iExpense")
             .toolbar {
                 NavigationLink {
@@ -64,10 +26,6 @@ struct ContentView: View {
                 }
             }
         }
-    }
-    
-    func removeItems(at offsets: IndexSet) {
-        try? modelContext.delete(model: ExpenseItem.self)
     }
 }
 
