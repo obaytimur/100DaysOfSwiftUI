@@ -5,38 +5,12 @@
 //  Created by Oğulcan Baytimur on 15/02/2024.
 //
 
+import SwiftData
 import SwiftUI
 
-struct ExpenseItem: Identifiable, Codable {
-    var id = UUID()
-    let name: String
-    let type: String
-    let amount: Double
-}
-
-@Observable
-class Expenses {
-    var items = [ExpenseItem]() {
-        didSet {
-            if let encoded = try? JSONEncoder().encode(items) {
-                UserDefaults.standard.set(encoded, forKey: "Items")
-            }
-        }
-    }
-    
-    init() {
-        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
-            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
-                items = decodedItems
-                return
-            }
-        }
-        items = []
-    }
-}
-
 struct ContentView: View {
-    @State private var expenses = Expenses()
+    @Environment(\.modelContext) var modelContext
+    @Query var expenses: [ExpenseItem]
     @State private var showingAddExpense = false
 
 
@@ -44,7 +18,7 @@ struct ContentView: View {
         NavigationStack {
             List {
                 Section("Business") {
-                    ForEach(expenses.items) { item in
+                    ForEach(expenses) { item in
                         if item.type == "Business" {
                             HStack {
                                 VStack(alignment: .leading) {
@@ -63,7 +37,7 @@ struct ContentView: View {
                 }
                 
                 Section("Personal") {
-                    ForEach(expenses.items) { item in
+                    ForEach(expenses) { item in
                         if item.type == "Personal" {
                             HStack {
                                 VStack(alignment: .leading) {
@@ -84,7 +58,7 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 NavigationLink {
-                    AddView(expenses: $expenses)
+                    AddView()
                 } label : {
                     Image(systemName: "plus")
                 }
@@ -93,7 +67,7 @@ struct ContentView: View {
     }
     
     func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+        try? modelContext.delete(model: ExpenseItem.self)
     }
 }
 
