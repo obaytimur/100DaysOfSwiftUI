@@ -11,6 +11,11 @@ import SwiftUI
 struct ExpenseView: View {
     @Environment(\.modelContext) var modelContext
     @Query var expenses: [ExpenseItem]
+    
+    init(sortOrder: [SortDescriptor<ExpenseItem>]) {
+        _expenses = Query(sort: sortOrder)
+    }
+    
     var body: some View {
         List {
             Section("Business") {
@@ -58,5 +63,6 @@ struct ExpenseView: View {
 }
 
 #Preview {
-    ExpenseView()
+    ExpenseView(sortOrder: [SortDescriptor(\ExpenseItem.name)])
+        .modelContainer(for: ExpenseItem.self)
 }
