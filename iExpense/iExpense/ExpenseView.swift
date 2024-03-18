@@ -13,7 +13,7 @@ struct ExpenseView: View {
     @Query var expenses: [ExpenseItem]
     
     init(sortOrder: [SortDescriptor<ExpenseItem>]) {
-        _expenses = Query(sort: sortOrder)
+        _expenses = Query(sort: sortOrder,)
     }
     
     var body: some View {

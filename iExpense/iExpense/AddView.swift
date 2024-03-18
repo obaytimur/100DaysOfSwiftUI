@@ -12,7 +12,7 @@ struct AddView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     
-    @State private var name = "Item Name"
+    @State private var name = ""
     @State private var type = "Personal"
     @State private var amount = 0.0
     

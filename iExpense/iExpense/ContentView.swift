@@ -13,26 +13,30 @@ struct ContentView: View {
     @Query var expenses: [ExpenseItem]
     @State private var showingAddExpense = false
     @State private var sortOrder = [
-        SortDescriptor(\ExpenseItem.name),
-        SortDescriptor(\ExpenseItem.amount) ]
-
+        SortDescriptor(\ExpenseItem.name, order: .forward),
+        SortDescriptor(\ExpenseItem.amount, order: .forward)
+    ]
+    @State private var isAscendingOrder = true
 
     var body: some View {
         NavigationStack {
             ExpenseView(sortOrder: sortOrder)
             .navigationTitle("iExpense")
             .toolbar {
+                Button("", systemImage: isAscendingOrder ? "arrow.down" : "arrow.up") {
+                    isAscendingOrder.toggle()
+                }
                 Menu("Sort", systemImage: "list.number"){
                     Picker("Sort", selection: $sortOrder){
                         Text("Sort by Name")
                             .tag([
-                                SortDescriptor(\ExpenseItem.name),
-                                SortDescriptor(\ExpenseItem.amount)
+                                SortDescriptor(\ExpenseItem.name, order: isAscendingOrder ? .forward : .reverse),
+                                SortDescriptor(\ExpenseItem.amount, order: isAscendingOrder ? .forward : .reverse)
                             ])
                         Text("Sort by Amount")
                             .tag([
-                                SortDescriptor(\ExpenseItem.amount),
-                                SortDescriptor(\ExpenseItem.name)
+                                SortDescriptor(\ExpenseItem.amount, order: isAscendingOrder ? .forward : .reverse),
+                                SortDescriptor(\ExpenseItem.name, order: isAscendingOrder ? .forward : .reverse)
                             ])
                     }
                 }
