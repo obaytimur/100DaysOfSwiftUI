@@ -17,12 +17,21 @@ struct ContentView: View {
         SortDescriptor(\ExpenseItem.amount, order: .forward)
     ]
     @State private var isAscendingOrder = true
+    @State private var filterItemType = "Personal"
 
     var body: some View {
         NavigationStack {
-            ExpenseView(sortOrder: sortOrder)
+            ExpenseView(itemType: filterItemType, sortOrder: sortOrder)
             .navigationTitle("iExpense")
             .toolbar {
+                Menu("Filter", systemImage: "line.3.horizontal.decrease.circle"){
+                    Picker("Filter", selection: $filterItemType){
+                        Text("Personal Expenses")
+                            .tag("Personal")
+                        Text("Business Expenses")
+                            .tag("Business")
+                    }
+                }
                 Button("", systemImage: isAscendingOrder ? "arrow.down" : "arrow.up") {
                     isAscendingOrder.toggle()
                 }

@@ -12,8 +12,10 @@ struct ExpenseView: View {
     @Environment(\.modelContext) var modelContext
     @Query var expenses: [ExpenseItem]
     
-    init(sortOrder: [SortDescriptor<ExpenseItem>]) {
-        _expenses = Query(sort: sortOrder)
+    init(itemType: String, sortOrder: [SortDescriptor<ExpenseItem>]) {
+        _expenses = Query(filter: #Predicate<ExpenseItem> { item in
+            item.type == itemType
+        }, sort: sortOrder)
     }
     
     var body: some View {
@@ -41,6 +43,6 @@ struct ExpenseView: View {
 }
 
 #Preview {
-    ExpenseView(sortOrder: [SortDescriptor(\ExpenseItem.name)])
+    ExpenseView(itemType: "Personal", sortOrder: [SortDescriptor(\ExpenseItem.name)])
         .modelContainer(for: ExpenseItem.self)
 }
